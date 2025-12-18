@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Love Poem Generator</title>
+    <style>
+      body {
+        font-family: "Georgia", serif;
+        background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+        text-align: center;
+        padding: 40px;
+        color: #333;
+      }
+      h1 {
+        color: #b30059;
+      }
+      textarea,
+      input,
+      button {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 1em;
+      }
+      button {
+        background-color: #b30059;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #800040;
+      }
+      .poem {
+        margin-top: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: pre-line;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💖 AI Love Poem Generator 💖</h1>
+    <p>Enter a name or keyword and let love fill the air!!!!.</p>
+
+    <input type="text" id="keyword" placeholder="Enter a name or keyword" />
+    <button onclick="generatePoem()">Generate Poem</button>
+
+    <div class="poem" id="poemOutput"></div>
+
+    <script>
+      function generatePoem() {
+        const keyword = document.getElementById("keyword").value.trim();
+        if (!keyword) {
+          alert("Please enter a name or keyword.");
+          return;
+        }
+
+        // Poem building blocks
+        const lines1 = [
+          `In the quiet of the night, I think of ${keyword}`,
+          `Every heartbeat whispers your name, ${keyword}`,
+          `The stars seem brighter when I dream of ${keyword}`,
+          `${keyword}, you are the melody in my soul`,
+        ];
+        const lines2 = [
+          `Your smile paints my world in colors unknown`,
+          `Like a gentle breeze, you calm my restless heart`,
+          `You are the sunrise after my darkest night`,
+          `Your touch is the poetry my skin remembers`,
+        ];
+        const lines3 = [
+          `Forever in my heart, you will stay`,
+          `With you, every moment feels like spring`,
+          `Our love is a flame that time cannot dim`,
+          `You are my always, my forever, my home`,
+        ];
+
+        // Randomly pick one line from each set
+        const poem = [
+          lines1[Math.floor(Math.random() * lines1.length)],
+          lines2[Math.floor(Math.random() * lines2.length)],
+          lines3[Math.floor(Math.random() * lines3.length)],
+        ].join("\n");
+
+        document.getElementById("poemOutput").textContent = poem;
+      }
+    </script>
+  </body>
+</html>
